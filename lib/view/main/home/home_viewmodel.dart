@@ -1,15 +1,41 @@
-import 'package:thekiddle_app/app/app.router.dart';
-
-import '../../../../app/app.locator.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 class HomeViewModel extends BaseViewModel {
-  final String _declaration = 'Stacked is soo cool';
-  String get myDeclaration => _declaration;
-  final _navigationService = locator<NavigationService>();
+  // Placeholder for class and date selections
+  String selectedClass = 'Class';
+  String selectedDate = 'December 2023';
 
-  void navigateToSignIn() {
-    _navigationService.navigateTo(Routes.signInView);
+  void updateClass(String newClass) {
+    selectedClass = newClass;
+    notifyListeners();
   }
+
+  void updateDate(String newDate) {
+    selectedDate = newDate;
+    notifyListeners();
+  }
+
+  // Sample data for next schedule
+  final List<Map<String, String>> nextSchedule = [
+    {
+      'title': 'Science Class',
+      'time': '8.00 am - 10.00 am',
+      'color': '0xFFC8E6C9'
+    },
+    {
+      'title': 'Science Class',
+      'time': '8.00 am - 10.00 am',
+      'color': '0xFFFFF9C4'
+    },
+    {
+      'title': 'Science Class',
+      'time': '8.00 am - 10.00 am',
+      'color': '0xFFFFCCBC'
+    },
+    {
+      'title': 'Science Class',
+      'time': '8.00 am - 10.00 am',
+      'color': '0xFFBBDEFB'
+    },
+  ];
 }
