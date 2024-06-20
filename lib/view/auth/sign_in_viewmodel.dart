@@ -1,38 +1,37 @@
-import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:flutter/material.dart';
 
 class SignInViewModel extends BaseViewModel {
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController countryCodeController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
   bool isEmailSelected = true;
   List<bool> isSelected = [true, false];
 
   void toggleIndex(int index) {
-    if (index == 0) {
-      isEmailSelected = true;
-    } else {
-      isEmailSelected = false;
+    isEmailSelected = index == 0;
+    for (int i = 0; i < isSelected.length; i++) {
+      isSelected[i] = i == index;
     }
-    isSelected = [isEmailSelected, !isEmailSelected];
     notifyListeners();
   }
 
-  void signIn() {
-    // Implement sign-in logic here
+  void signIn(BuildContext context) {
+    // Add your sign-in logic here
+    // Navigate to the home page on successful sign-in
+    Navigator.pushReplacementNamed(context, '/home-view');
   }
 
   void verificationCodeSignIn() {
-    // Implement verification code sign-in logic here
+    // Add your verification code sign-in logic here
   }
 
   void forgotPassword() {
-    // Implement forgot password logic here
+    // Add your forgot password logic here
   }
 
   void contactUs() {
-    // Implement contact us logic here
+    // Add your contact us logic here
   }
 }

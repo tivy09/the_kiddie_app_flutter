@@ -3,7 +3,7 @@ import 'sign_in_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class SignInView extends StatelessWidget {
-  SignInView({super.key});
+  const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class SignInView extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: viewModel.signIn,
+                            onPressed: () => viewModel.signIn(context),
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,
                               backgroundColor: const Color(0xFF52B5E6),
