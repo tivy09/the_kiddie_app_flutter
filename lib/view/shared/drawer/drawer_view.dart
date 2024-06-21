@@ -53,7 +53,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.person),
                 title: const Text('Students'),
                 onTap: () {
-                  // Handle students tap
+                  model.navigateToStudent(context);
                 },
               ),
               ListTile(

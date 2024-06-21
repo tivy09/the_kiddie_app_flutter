@@ -1,15 +1,7 @@
+// header_viewmodel.dart
+
 import 'package:stacked/stacked.dart';
 
 class HeaderViewModel extends BaseViewModel {
-  void goBack() {
-    // Handle back navigation
-  }
-
-  void navigateToNotificationView() {
-    // Handle navigation to notifications
-  }
-
-  void navigateToCartView() {
-    // Handle navigation to cart
-  }
+  // Add any logic or data for the Header here if needed
 }

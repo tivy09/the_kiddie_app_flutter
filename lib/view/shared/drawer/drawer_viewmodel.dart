@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/home/home_view.dart';
 import 'package:thekiddle_app/view/main/payroll/payroll_view.dart';
 import 'package:thekiddle_app/view/main/profile/profile_view.dart';
+import 'package:thekiddle_app/view/main/student/student_view.dart';
 
 class DrawerViewModel extends BaseViewModel {
   int _notificationCount = 1;
@@ -32,6 +33,13 @@ class DrawerViewModel extends BaseViewModel {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const PayrollView()),
+    );
+  }
+
+  void navigateToStudent(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const StudentView()),
     );
   }
 }
