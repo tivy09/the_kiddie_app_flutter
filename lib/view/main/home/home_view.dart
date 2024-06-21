@@ -207,7 +207,7 @@ class HomeView extends StatelessWidget {
                         onFormatChanged: (format) {
                           model.onFormatChanged(format);
                         },
-                        calendarStyle: CalendarStyle(
+                        calendarStyle: const CalendarStyle(
                           selectedDecoration: BoxDecoration(
                             color: Colors.pink,
                             shape: BoxShape.circle,
@@ -217,7 +217,7 @@ class HomeView extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                         ),
-                        headerStyle: HeaderStyle(
+                        headerStyle: const HeaderStyle(
                           formatButtonVisible: false,
                           titleCentered: true,
                           leftChevronIcon:
@@ -280,15 +280,6 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Student Attendance',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
@@ -298,6 +289,15 @@ class HomeView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const Text(
+                        'Student Attendance',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
                       Container(
                         height: 100,
                         color: Colors.lightBlue[100],
@@ -318,169 +318,209 @@ class HomeView extends StatelessWidget {
                         color: Colors.green[100],
                         child: const Center(child: Text('24/30')),
                       ),
+                      const SizedBox(height: 16),
+                      const Text(
+                        'Absents',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 4, // Replace with your actual data count
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 4.0),
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: const Row(
+                              children: [
+                                CircleAvatar(
+                                  // backgroundImage: AssetImage('assets/profile.jpg'),
+                                  radius: 20,
+                                ),
+                                SizedBox(width: 8),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Adi',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold)),
+                                    Text('Class a1',
+                                        style: TextStyle(
+                                            fontSize: 14, color: Colors.grey)),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Absents',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 4, // Replace with your actual data count
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 4.0),
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: const Row(
-                        children: [
-                          CircleAvatar(
-                            // backgroundImage: AssetImage('assets/profile.jpg'),
-                            radius: 20,
-                          ),
-                          SizedBox(width: 8),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Adi',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
-                              Text('Class a1',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.grey)),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Replacement Request',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 4, // Replace with your actual data count
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 4.0),
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Pending',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.red)),
-                              Text('English',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.grey)),
-                            ],
-                          ),
-                          Text('18/12/2023',
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.grey)),
-                          Icon(Icons.arrow_forward_ios,
-                              size: 16, color: Colors.grey),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Communications',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    color: Colors.lightBlue[100],
+                    color: const Color(0xFFFCE4EC),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Conversations with parents',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Text('56',
-                          style: TextStyle(
-                              fontSize: 48, fontWeight: FontWeight.bold)),
-                      Text('Parent Questions Today',
-                          style: TextStyle(fontSize: 16)),
+                      const Text(
+                        'Replacement Request',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 4, // Replace with your actual data count
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 4.0),
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Pending',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.red)),
+                                    Text('English',
+                                        style: TextStyle(
+                                            fontSize: 14, color: Colors.grey)),
+                                  ],
+                                ),
+                                Text('18/12/2023',
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.grey)),
+                                Icon(Icons.arrow_forward_ios,
+                                    size: 16, color: Colors.grey),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    color: Colors.lightBlue[100],
+                    color: const Color(0xFFFCE4EC),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Broadcast Messages Sent',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Text('4',
-                          style: TextStyle(
-                              fontSize: 48, fontWeight: FontWeight.bold)),
-                      Text('Broadcast Messages Sent Today',
-                          style: TextStyle(fontSize: 16)),
+                      const Text(
+                        'Communications',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Center(
+                        child: Container(
+                          width: 250, // You can adjust the width as needed
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFB3E5FC),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: const Column(
+                            children: [
+                              Text(
+                                '56',
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                'Parent Questions Today',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Center(
+                        child: Container(
+                          width: 250, // You can adjust the width as needed
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFB39DDB),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: const Column(
+                            children: [
+                              Text(
+                                '4',
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                'Broadcast Messages Sent Today',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
