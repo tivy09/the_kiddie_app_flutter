@@ -85,8 +85,8 @@ class ProfileView extends StatelessWidget {
                 const Center(
                   child: CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage(
-                        'assets/profile.jpg'), // Update with your image asset
+                    // backgroundImage: AssetImage(
+                    //     'assets/profile.jpg'), // Update with your image asset
                   ),
                 ),
                 const SizedBox(height: 8),

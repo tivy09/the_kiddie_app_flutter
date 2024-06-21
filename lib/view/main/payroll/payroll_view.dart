@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/payroll/payroll_viewmodel.dart';
+import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
 
 class PayrollView extends StatelessWidget {
   const PayrollView({super.key});
@@ -50,6 +51,7 @@ class PayrollView extends StatelessWidget {
               ),
             ],
           ),
+          drawer: const DrawerView(),
           body: Column(
             children: [
               Padding(

@@ -9,15 +9,16 @@ class PasswordTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final InputDecoration fieldDecoration = InputDecoration(
+      // Removed fillColor and filled properties
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(
+        borderSide: BorderSide(
           color: Colors.grey,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(
+        borderSide: BorderSide(
           color: Colors.grey,
         ),
       ),
@@ -25,7 +26,11 @@ class PasswordTab extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         borderSide: const BorderSide(
           color: Colors.blue,
+          width: 2.0,
         ),
+      ),
+      labelStyle: const TextStyle(
+        color: Colors.grey,
       ),
     );
 
@@ -38,16 +43,6 @@ class PasswordTab extends StatelessWidget {
             const SizedBox(height: 16),
             TextField(
               decoration: fieldDecoration.copyWith(
-                labelText: 'Current Password',
-              ),
-              obscureText: true,
-              onChanged: (value) {
-                // Handle current password change
-              },
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              decoration: fieldDecoration.copyWith(
                 labelText: 'New Password',
               ),
               obscureText: true,
@@ -55,22 +50,83 @@ class PasswordTab extends StatelessWidget {
                 // Handle new password change
               },
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 16), // Increased spacing
             TextField(
               decoration: fieldDecoration.copyWith(
-                labelText: 'Confirm New Password',
+                labelText: 'Confirm Password',
               ),
               obscureText: true,
               onChanged: (value) {
                 // Handle confirm new password change
               },
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 32), // Increased spacing
+            const Text(
+              '2 Factor Authentication',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
             ElevatedButton(
               onPressed: () {
-                // Handle password update
+                // Handle 2FA enable
               },
-              child: const Text('Update Password'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlueAccent,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24.0,
+                  vertical: 12.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              child: const Text('Enable'),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Protect your account with 2 step verification. Each time you sign in to your account, you will need your password and a verification code from an authenticator app.',
+              style: TextStyle(color: Colors.grey),
+            ),
+            const SizedBox(height: 32), // Increased spacing
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OutlinedButton(
+                  onPressed: () {
+                    // Handle cancel action
+                  },
+                  child: const Text('Cancel'),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 12.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    side: const BorderSide(color: Colors.grey),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle save action
+                  },
+                  child: const Text('Save'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0,
+                      vertical: 12.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
