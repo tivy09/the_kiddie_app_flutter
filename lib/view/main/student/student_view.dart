@@ -30,11 +30,10 @@ class StudentView extends StatelessWidget {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFCE4EC),
-                        borderRadius:
-                            BorderRadius.circular(8.0), // Added border radius
+                        color: const Color(0xFFFAE6E9),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      padding: const EdgeInsets.all(8.0), // Added padding
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
                           const TabBar(
@@ -133,36 +132,184 @@ class StudentView extends StatelessWidget {
         final student = model.students[index];
         return Card(
           margin: const EdgeInsets.symmetric(vertical: 10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(student.imageUrl),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      student.name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(student.imageUrl),
+                    radius: 30,
+                  ),
                 ),
-                const SizedBox(height: 10),
-                Text('Age: ${student.age}'),
-                Text('Start Day: ${student.startDate}'),
-                Text('Attendance: ${student.attendance}%'),
-                Text('Homework: ${student.homework}/30'),
-                Text('Test: ${student.test}%'),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: "Student's Name: ",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 12, // Smaller font size
+                          ),
+                          children: [
+                            TextSpan(
+                              text: student.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12, // Smaller font size
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          text: "Age: ",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 12, // Smaller font size
+                          ),
+                          children: [
+                            TextSpan(
+                              text: student.age.toString(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12, // Smaller font size
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          text: 'Start Day: ',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 12, // Smaller font size
+                          ),
+                          children: [
+                            TextSpan(
+                              text: student.startDate,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12, // Smaller font size
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          text: 'Attendance: ',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 12, // Smaller font size
+                          ),
+                          children: [
+                            TextSpan(
+                              text: '${student.attendance}%', // Dynamic data
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12, // Smaller font size
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              text: 'Homework: ',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                fontSize: 12, // Smaller font size
+                              ),
+                              children: [
+                                TextSpan(
+                                  text:
+                                      '${student.homework}/30', // Dynamic data
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12, // Smaller font size
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          _buildIconWithBackground(),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              text: 'Test: ',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                fontSize: 12, // Smaller font size
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: '${student.test}%', // Dynamic data
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12, // Smaller font size
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          _buildIconWithBackground(),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                ),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildIconWithBackground() {
+    return Container(
+      padding: const EdgeInsets.all(2.0),
+      decoration: const BoxDecoration(
+        color: Color(0xFFC1FF72),
+        shape: BoxShape.circle,
+      ),
+      child: const Icon(
+        Icons.arrow_upward,
+        size: 14.0,
+        color: Colors.green,
+      ),
     );
   }
 }
