@@ -6,6 +6,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:table_calendar/table_calendar.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
 import 'package:thekiddle_app/view/shared/header/header.dart';
+import 'package:thekiddle_app/widget/others/page_title.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -25,25 +26,7 @@ class HomeView extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: ListView(
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFD1C4E9),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: const Text(
-                      'Dashboard',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                const PageTitle(title: 'Dashboard'),
                 const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

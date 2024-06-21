@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/student/student_viewmodel.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
 import 'package:thekiddle_app/view/shared/header/header.dart';
+import 'package:thekiddle_app/widget/others/page_title.dart';
 
 class StudentView extends StatelessWidget {
   const StudentView({super.key});
@@ -24,7 +25,7 @@ class StudentView extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  _buildHeader(),
+                  const PageTitle(title: 'Student'),
                   const SizedBox(height: 8),
                   Expanded(
                     child: Container(
@@ -72,28 +73,6 @@ class StudentView extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  Widget _buildHeader() {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          color: const Color(0xFFD1C4E9),
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: const Text(
-          'Student',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-      ),
     );
   }
 
