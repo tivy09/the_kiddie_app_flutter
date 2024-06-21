@@ -81,7 +81,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.payment),
                 title: const Text('Payroll'),
                 onTap: () {
-                  // Handle payroll tap
+                  model.navigateToPayroll(context);
                 },
               ),
               ListTile(

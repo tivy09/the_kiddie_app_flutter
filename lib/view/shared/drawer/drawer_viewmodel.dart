@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/home/home_view.dart';
+import 'package:thekiddle_app/view/main/payroll/payroll_view.dart';
 import 'package:thekiddle_app/view/main/profile/profile_view.dart';
 
 class DrawerViewModel extends BaseViewModel {
@@ -24,6 +25,13 @@ class DrawerViewModel extends BaseViewModel {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const ProfileView()),
+    );
+  }
+
+  void navigateToPayroll(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const PayrollView()),
     );
   }
 }
