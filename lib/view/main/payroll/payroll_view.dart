@@ -27,73 +27,88 @@ class PayrollView extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: const Color(0xFFFCE4EC), // Add background color here
-                  child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    itemCount: model.payrolls.length,
-                    itemBuilder: (context, index) {
-                      final payroll = model.payrolls[index];
-                      return Card(
-                        margin: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Date: ${payroll.date}'),
-                                    const SizedBox(height: 8),
-                                    Text('Type: ${payroll.type}'),
-                                    const SizedBox(height: 8),
-                                    Text('Total: ${payroll.total}'),
-                                    const SizedBox(height: 3),
-                                    Row(
-                                      children: [
-                                        const Text('Action: '),
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            // Handle download
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.blue,
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal:
-                                                  10.0, // Adjust padding as needed
-                                              vertical:
-                                                  2.0, // Adjust padding as needed
-                                            ),
-                                            textStyle: const TextStyle(
-                                              fontSize:
-                                                  14, // Adjust font size as needed
-                                            ),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8.0), // Rounded corners
-                                            ),
-                                          ),
-                                          child: const Text(
-                                            'Download',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16,
-                              ),
-                            ],
+                  margin: const EdgeInsets.all(16.0), // Add margin here
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFCE4EC),
+                    borderRadius:
+                        BorderRadius.circular(12.0), // Add border radius here
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                        12.0), // Clip the child to the border radius
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      itemCount: model.payrolls.length,
+                      itemBuilder: (context, index) {
+                        final payroll = model.payrolls[index];
+                        return Card(
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                12.0), // Add border radius to the card
                           ),
-                        ),
-                      );
-                    },
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Date: ${payroll.date}'),
+                                      const SizedBox(height: 8),
+                                      Text('Type: ${payroll.type}'),
+                                      const SizedBox(height: 8),
+                                      Text('Total: ${payroll.total}'),
+                                      const SizedBox(height: 3),
+                                      Row(
+                                        children: [
+                                          const Text('Action: '),
+                                          ElevatedButton(
+                                            onPressed: () {
+                                              // Handle download
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor: Colors.blue,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal:
+                                                    10.0, // Adjust padding as needed
+                                                vertical:
+                                                    2.0, // Adjust padding as needed
+                                              ),
+                                              textStyle: const TextStyle(
+                                                fontSize:
+                                                    14, // Adjust font size as needed
+                                              ),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        8.0), // Rounded corners
+                                              ),
+                                            ),
+                                            child: const Text(
+                                              'Download',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 16,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
