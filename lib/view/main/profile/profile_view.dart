@@ -4,6 +4,7 @@ import 'package:thekiddle_app/view/main/profile/profile_viewmodel.dart';
 import 'package:thekiddle_app/view/main/profile/tab_widget/password_tab.dart';
 import 'package:thekiddle_app/view/main/profile/tab_widget/profile_tab.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
+import 'package:thekiddle_app/view/shared/header/header.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -17,44 +18,9 @@ class ProfileView extends StatelessWidget {
           length: 2,
           initialIndex: model.currentIndex,
           child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              elevation: 0,
-              leading: Builder(
-                builder: (BuildContext context) {
-                  return IconButton(
-                    icon: const Icon(Icons.menu, color: Colors.grey),
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                  );
-                },
-              ),
-              title: const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.tag_faces, color: Colors.pink),
-                  SizedBox(width: 4),
-                  Text(
-                    'Kiddie',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 24,
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.search, color: Colors.grey),
-                  onPressed: () {
-                    // Handle search button press
-                  },
-                ),
-              ],
+            appBar: const PreferredSize(
+              preferredSize: Size.fromHeight(kToolbarHeight),
+              child: Header(),
             ),
             drawer: const DrawerView(),
             body: Column(
