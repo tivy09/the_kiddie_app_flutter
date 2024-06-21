@@ -16,13 +16,18 @@ class DrawerView extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              const UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Color(0xFFD1C4E9)),
-                accountName: Text('Go Younjung'),
-                accountEmail: Text('Teacher'),
-                currentAccountPicture: CircleAvatar(
-                    // backgroundImage: AssetImage('assets/profile.jpg'),
-                    ),
+              GestureDetector(
+                onTap: () {
+                  model.navigateToProfile(context);
+                },
+                child: const UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: Color(0xFFD1C4E9)),
+                  accountName: Text('Go Younjung'),
+                  accountEmail: Text('Teacher'),
+                  currentAccountPicture: CircleAvatar(
+                      // backgroundImage: AssetImage('assets/profile.jpg'),
+                      ),
+                ),
               ),
               ListTile(
                 leading: const Icon(Icons.home),

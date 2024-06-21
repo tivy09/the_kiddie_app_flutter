@@ -2,7 +2,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:thekiddle_app/view/auth/sign_in_view.dart';
 import 'package:thekiddle_app/view/main/home/home_view.dart';
-import 'package:thekiddle_app/view/profile/profile_view.dart';
+import 'package:thekiddle_app/view/main/profile/profile_view.dart';
 
 @StackedApp(
   routes: [
