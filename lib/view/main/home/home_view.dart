@@ -1,11 +1,12 @@
+// home_view.dart
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/home/home_viewmodel.dart';
-import 'package:intl/intl.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:table_calendar/table_calendar.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,14 @@ class HomeView extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
-            leading: IconButton(
-              icon: const Icon(Icons.menu, color: Colors.grey),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu, color: Colors.grey),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
               },
             ),
             title: const Row(
@@ -30,8 +35,7 @@ class HomeView extends StatelessWidget {
                 Text(
                   'Kiddie',
                   style: TextStyle(
-                    fontFamily:
-                        'Roboto', // Replace with your desired font family
+                    fontFamily: 'Roboto',
                     fontSize: 24,
                     color: Colors.purple,
                     fontWeight: FontWeight.bold,
@@ -58,9 +62,8 @@ class HomeView extends StatelessWidget {
                   accountName: Text('Go Younjung'),
                   accountEmail: Text('Teacher'),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage(
-                        'assets/profile.jpg'), // Replace with your profile image
-                  ),
+                      // backgroundImage: AssetImage('assets/profile.jpg'),
+                      ),
                 ),
                 ListTile(
                   leading: const Icon(Icons.home),
@@ -157,7 +160,7 @@ class HomeView extends StatelessWidget {
                       onChanged: (String? newValue) {
                         model.updateClass(newValue!);
                       },
-                      items: <String>['Class', 'Class 1', 'Class 2']
+                      items: model.classes
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -170,10 +173,8 @@ class HomeView extends StatelessWidget {
                       onChanged: (String? newValue) {
                         model.updateDate(newValue!);
                       },
-                      items: <String>[
-                        'December 2023',
-                        DateFormat.yMMMM().format(DateTime.now()),
-                      ].map<DropdownMenuItem<String>>((String value) {
+                      items: model.availableDates
+                          .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -192,8 +193,46 @@ class HomeView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      TableCalendar(
+                        focusedDay: model.focusedDay,
+                        firstDay: DateTime(2020, 1, 1),
+                        lastDay: DateTime(2030, 12, 31),
+                        selectedDayPredicate: (day) {
+                          return isSameDay(model.selectedDay, day);
+                        },
+                        onDaySelected: (selectedDay, focusedDay) {
+                          model.onDaySelected(selectedDay, focusedDay);
+                        },
+                        calendarFormat: model.calendarFormat,
+                        onFormatChanged: (format) {
+                          model.onFormatChanged(format);
+                        },
+                        calendarStyle: CalendarStyle(
+                          selectedDecoration: BoxDecoration(
+                            color: Colors.pink,
+                            shape: BoxShape.circle,
+                          ),
+                          todayDecoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        headerStyle: HeaderStyle(
+                          formatButtonVisible: false,
+                          titleCentered: true,
+                          leftChevronIcon:
+                              Icon(Icons.chevron_left, color: Colors.black),
+                          rightChevronIcon:
+                              Icon(Icons.chevron_right, color: Colors.black),
+                          titleTextStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       const Text(
-                        'Calendar',
+                        'Next Schedule',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -201,101 +240,44 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      Table(
-                        children: [
-                          TableRow(
-                            children: [
-                              for (var day in [
-                                'Mon',
-                                'Tue',
-                                'Wed',
-                                'Thu',
-                                'Fri',
-                                'Sat',
-                                'Sun'
-                              ])
-                                Center(
-                                    child: Text(day,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold))),
-                            ],
-                          ),
-                          for (var week
-                              in List.generate(5, (index) => index + 1))
-                            TableRow(
-                              children: List.generate(7, (index) {
-                                return Center(
-                                  child: Container(
-                                    margin: const EdgeInsets.all(4.0),
-                                    padding: const EdgeInsets.all(8.0),
-                                    decoration: BoxDecoration(
-                                      color: index == 2 && week == 1
-                                          ? Colors.blueAccent
-                                          : Colors.transparent,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Text(
-                                      (index + week * 7 - 6).toString(),
-                                      style: TextStyle(
-                                        color: index == 2 && week == 1
-                                            ? Colors.white
-                                            : Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: model.nextSchedule.length,
+                        itemBuilder: (context, index) {
+                          final schedule = model.nextSchedule[index];
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 4.0),
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Color(int.parse(schedule['color']!)),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                        ],
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  schedule['title']!,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text(
+                                  schedule['time']!,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Next Schedule',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: model.nextSchedule.length,
-                  itemBuilder: (context, index) {
-                    final schedule = model.nextSchedule[index];
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 4.0),
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        color: Color(int.parse(schedule['color']!)),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            schedule['title']!,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          Text(
-                            schedule['time']!,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -316,7 +298,6 @@ class HomeView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Placeholder for attendance chart
                       Container(
                         height: 100,
                         color: Colors.lightBlue[100],
@@ -332,7 +313,6 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      // Placeholder for attendance circle
                       Container(
                         height: 100,
                         color: Colors.green[100],
@@ -374,8 +354,7 @@ class HomeView extends StatelessWidget {
                       child: const Row(
                         children: [
                           CircleAvatar(
-                            backgroundImage: AssetImage(
-                                'assets/profile.jpg'), // Replace with actual image
+                            // backgroundImage: AssetImage('assets/profile.jpg'),
                             radius: 20,
                           ),
                           SizedBox(width: 8),
