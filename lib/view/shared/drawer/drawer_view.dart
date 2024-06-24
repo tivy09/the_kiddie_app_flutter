@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:thekiddle_app/view/main/home/home_view.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:thekiddle_app/view/shared/drawer/drawer_viewmodel.dart';
 
 class DrawerView extends StatelessWidget {
-  const DrawerView({Key? key}) : super(key: key);
+  const DrawerView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -545,7 +545,7 @@ packages:
     source: hosted
     version: "1.5.0"
   stacked_shared:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: stacked_shared
       sha256: e6bc2921eb59b7c741c551fbb4060f22a543ea9c2d9351315fb58aa055b535f3

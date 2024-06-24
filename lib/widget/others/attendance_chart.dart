@@ -4,11 +4,13 @@ class AttendanceChartWidget extends StatelessWidget {
   final List<double> data = [120, 100, 120, 100, 100];
   final List<String> labels = ['1/8', '2/8', '3/8', '4/8', '5/8'];
 
+  AttendanceChartWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AttendanceToday(),
+        const AttendanceToday(),
         const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.all(16.0),
@@ -66,6 +68,8 @@ class AttendanceChartWidget extends StatelessWidget {
 }
 
 class AttendanceToday extends StatelessWidget {
+  const AttendanceToday({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -81,7 +85,7 @@ class AttendanceToday extends StatelessWidget {
         Stack(
           alignment: Alignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 100,
               height: 100,
               child: CircularProgressIndicator(
@@ -103,8 +107,4 @@ class AttendanceToday extends StatelessWidget {
       ],
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: Scaffold(body: AttendanceChartWidget())));
 }

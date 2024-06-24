@@ -4,7 +4,7 @@ import 'package:thekiddle_app/view/main/profile/profile_viewmodel.dart';
 class PasswordTab extends StatelessWidget {
   final ProfileViewModel model;
 
-  const PasswordTab({required this.model, Key? key}) : super(key: key);
+  const PasswordTab({required this.model, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +12,13 @@ class PasswordTab extends StatelessWidget {
       // Removed fillColor and filled properties
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
         ),
       ),
@@ -98,7 +98,6 @@ class PasswordTab extends StatelessWidget {
                   onPressed: () {
                     // Handle cancel action
                   },
-                  child: const Text('Cancel'),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24.0,
@@ -109,12 +108,12 @@ class PasswordTab extends StatelessWidget {
                     ),
                     side: const BorderSide(color: Colors.grey),
                   ),
+                  child: const Text('Cancel'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle save action
                   },
-                  child: const Text('Save'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: const EdgeInsets.symmetric(
@@ -125,6 +124,7 @@ class PasswordTab extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
+                  child: const Text('Save'),
                 ),
               ],
             ),

@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/home/home_viewmodel.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:table_calendar/table_calendar.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
 import 'package:thekiddle_app/view/shared/header/header.dart';

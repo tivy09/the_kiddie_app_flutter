@@ -51,7 +51,7 @@ class SignInView extends StatelessWidget {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                                 borderSide:
-                                    BorderSide(color: Color(0xFFD9D9D9)),
+                                    const BorderSide(color: Color(0xFFD9D9D9)),
                               ),
                             ),
                           )
@@ -72,7 +72,7 @@ class SignInView extends StatelessWidget {
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                       borderSide:
-                                          BorderSide(color: Color(0xFFD9D9D9)),
+                                          const BorderSide(color: Color(0xFFD9D9D9)),
                                     ),
                                   ),
                                 ),
@@ -87,7 +87,7 @@ class SignInView extends StatelessWidget {
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                       borderSide:
-                                          BorderSide(color: Color(0xFFD9D9D9)),
+                                          const BorderSide(color: Color(0xFFD9D9D9)),
                                     ),
                                   ),
                                 ),
@@ -102,7 +102,7 @@ class SignInView extends StatelessWidget {
                             labelText: 'Password',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide(color: Color(0xFFD9D9D9)),
+                              borderSide: const BorderSide(color: Color(0xFFD9D9D9)),
                             ),
                             suffixIcon: IconButton(
                               icon: const Icon(Icons.visibility),

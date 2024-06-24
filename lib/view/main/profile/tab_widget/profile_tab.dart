@@ -4,7 +4,7 @@ import 'package:thekiddle_app/view/main/profile/profile_viewmodel.dart';
 class ProfileTab extends StatelessWidget {
   final ProfileViewModel model;
 
-  const ProfileTab({required this.model, Key? key}) : super(key: key);
+  const ProfileTab({required this.model, super.key});
 
   @override
   Widget build(BuildContext context) {
