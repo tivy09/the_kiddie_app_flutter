@@ -22,9 +22,20 @@ class StudentViewModel extends BaseViewModel {
       attendance: 100,
       homework: 29,
       test: 100,
-      imageUrl: 'https://example.com/adrian.png',
+      imageUrl: '',
+      className: 'Class 1',
     ),
     // Add more students here
+    Student(
+      name: 'Bella',
+      age: 7,
+      startDate: '15 March 2022',
+      attendance: 90,
+      homework: 25,
+      test: 90,
+      className: 'Class 1',
+      imageUrl: '',
+    ),
   ];
 
   void updateSelectedClass(String? newValue) {
@@ -39,13 +50,28 @@ class StudentViewModel extends BaseViewModel {
 
   void updateToggleButtons(int index) {
     for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
-      if (buttonIndex == index) {
-        isSelected[buttonIndex] = true;
-      } else {
-        isSelected[buttonIndex] = false;
-      }
+      isSelected[buttonIndex] = buttonIndex == index;
     }
     notifyListeners();
+  }
+
+  void addStudent(Student student) {
+    students.add(student);
+    notifyListeners();
+  }
+
+  void removeStudent(int index) {
+    if (index >= 0 && index < students.length) {
+      students.removeAt(index);
+      notifyListeners();
+    }
+  }
+
+  void updateStudent(int index, Student student) {
+    if (index >= 0 && index < students.length) {
+      students[index] = student;
+      notifyListeners();
+    }
   }
 }
 
@@ -57,6 +83,7 @@ class Student {
   final int homework;
   final int test;
   final String imageUrl;
+  final String? className;
 
   Student({
     required this.name,
@@ -66,5 +93,6 @@ class Student {
     required this.homework,
     required this.test,
     required this.imageUrl,
+    this.className,
   });
 }
