@@ -5,12 +5,14 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i10;
+import 'package:stacked_services/stacked_services.dart' as _i11;
 import 'package:thekiddle_app/view/auth/sign_in_view.dart' as _i2;
-import 'package:thekiddle_app/view/main/home/home_view.dart' as _i8;
+import 'package:thekiddle_app/view/main/home/home_view.dart' as _i9;
+import 'package:thekiddle_app/view/main/notification/notification_view.dart'
+    as _i8;
 import 'package:thekiddle_app/view/main/payroll/payroll_view.dart' as _i4;
 import 'package:thekiddle_app/view/main/profile/profile_view.dart' as _i3;
 import 'package:thekiddle_app/view/main/replacement/addForm/replacement_request_view.dart'
@@ -32,6 +34,8 @@ class Routes {
 
   static const replacementRequestView = '/replacement-request-view';
 
+  static const notificationView = '/notification-view';
+
   static const homeView = '/';
 
   static const all = <String>{
@@ -41,6 +45,7 @@ class Routes {
     studentView,
     replacementView,
     replacementRequestView,
+    notificationView,
     homeView,
   };
 }
@@ -72,51 +77,61 @@ class StackedRouter extends _i1.RouterBase {
       page: _i7.ReplacementRequestView,
     ),
     _i1.RouteDef(
+      Routes.notificationView,
+      page: _i8.NotificationView,
+    ),
+    _i1.RouteDef(
       Routes.homeView,
-      page: _i8.HomeView,
+      page: _i9.HomeView,
     ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.SignInView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.SignInView(),
         settings: data,
       );
     },
     _i3.ProfileView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.ProfileView(),
         settings: data,
       );
     },
     _i4.PayrollView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.PayrollView(),
         settings: data,
       );
     },
     _i5.StudentView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.StudentView(),
         settings: data,
       );
     },
     _i6.ReplacementView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ReplacementView(),
         settings: data,
       );
     },
     _i7.ReplacementRequestView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.ReplacementRequestView(),
         settings: data,
       );
     },
-    _i8.HomeView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i8.HomeView(),
+    _i8.NotificationView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i8.NotificationView(),
+        settings: data,
+      );
+    },
+    _i9.HomeView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i9.HomeView(),
         settings: data,
       );
     },
@@ -129,7 +144,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i10.NavigationService {
+extension NavigatorStateExtension on _i11.NavigationService {
   Future<dynamic> navigateToSignInView([
     int? routerId,
     bool preventDuplicates = true,
@@ -208,6 +223,20 @@ extension NavigatorStateExtension on _i10.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.replacementRequestView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToNotificationView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.notificationView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -306,6 +335,20 @@ extension NavigatorStateExtension on _i10.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.replacementRequestView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithNotificationView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.notificationView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

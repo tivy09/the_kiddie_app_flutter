@@ -2,6 +2,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:thekiddle_app/view/auth/sign_in_view.dart';
 import 'package:thekiddle_app/view/main/home/home_view.dart';
+import 'package:thekiddle_app/view/main/notification/notification_view.dart';
 import 'package:thekiddle_app/view/main/payroll/payroll_view.dart';
 import 'package:thekiddle_app/view/main/profile/profile_view.dart';
 import 'package:thekiddle_app/view/main/replacement/addForm/replacement_request_view.dart';
@@ -16,6 +17,7 @@ import 'package:thekiddle_app/view/main/student/student_view.dart';
     MaterialRoute(page: StudentView),
     MaterialRoute(page: ReplacementView),
     MaterialRoute(page: ReplacementRequestView),
+    MaterialRoute(page: NotificationView),
     MaterialRoute(page: HomeView, initial: true),
   ],
   dependencies: [

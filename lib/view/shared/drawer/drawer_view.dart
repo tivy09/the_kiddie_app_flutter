@@ -39,7 +39,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.notifications),
                 title: const Text('Notification'),
                 onTap: () {
-                  model.clearNotifications();
+                  model.navigateToNotification(context);
                 },
                 trailing: badges.Badge(
                   badgeContent: Text(
