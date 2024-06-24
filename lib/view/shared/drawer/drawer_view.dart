@@ -59,7 +59,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.calendar_today),
                 title: const Text('Calendar'),
                 onTap: () {
-                  // Handle calendar tap
+                  model.navigateToCalendar(context);
                 },
               ),
               ListTile(
