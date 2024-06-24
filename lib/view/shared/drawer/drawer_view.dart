@@ -87,7 +87,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.repeat),
                 title: const Text('Replacement'),
                 onTap: () {
-                  // Handle replacement tap
+                  model.navigateToReplacement(context);
                 },
               ),
             ],
