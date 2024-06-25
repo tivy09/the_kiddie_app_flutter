@@ -75,6 +75,9 @@ class CalendarView extends StatelessWidget {
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: "Monthly View",
+                      isDense: true,
+                      isExpanded: true,
+                      dropdownColor: Colors.white,
                       items: [
                         "Monthly View",
                         "Weekly View with longer text to test overflow handling"
@@ -90,7 +93,8 @@ class CalendarView extends StatelessWidget {
                       //fix this ui problem//
                       decoration: InputDecoration(
                         isDense: true,
-                        contentPadding: EdgeInsets.zero,
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
                         border: OutlineInputBorder(
                           borderSide: const BorderSide(
                             color: Color(0xFFAFAFAF),
