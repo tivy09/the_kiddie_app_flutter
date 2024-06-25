@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/view/main/calendar/calendar_view.dart';
 import 'package:thekiddle_app/view/main/home/home_view.dart';
+import 'package:thekiddle_app/view/main/moments/moments_view.dart';
 import 'package:thekiddle_app/view/main/notification/notification_view.dart';
 import 'package:thekiddle_app/view/main/payroll/payroll_view.dart';
 import 'package:thekiddle_app/view/main/profile/profile_view.dart';
@@ -64,6 +65,13 @@ class DrawerViewModel extends BaseViewModel {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const CalendarView()),
+    );
+  }
+
+  void navigateToMoment(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MomentsView()),
     );
   }
 }

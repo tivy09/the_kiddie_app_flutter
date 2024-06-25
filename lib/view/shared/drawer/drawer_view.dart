@@ -66,7 +66,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.photo),
                 title: const Text('Moment'),
                 onTap: () {
-                  // Handle moment tap
+                  model.navigateToMoment(context);
                 },
               ),
               ListTile(

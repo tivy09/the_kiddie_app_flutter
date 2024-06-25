@@ -5,13 +5,16 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i11;
+import 'package:flutter/material.dart' as _i13;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i12;
+import 'package:stacked_services/stacked_services.dart' as _i14;
 import 'package:thekiddle_app/view/auth/sign_in_view.dart' as _i2;
 import 'package:thekiddle_app/view/main/calendar/calendar_view.dart' as _i9;
-import 'package:thekiddle_app/view/main/home/home_view.dart' as _i10;
+import 'package:thekiddle_app/view/main/home/home_view.dart' as _i12;
+import 'package:thekiddle_app/view/main/moments/moments_view.dart' as _i10;
+import 'package:thekiddle_app/view/main/moments/add_form/add_moment_view.dart'
+    as _i11;
 import 'package:thekiddle_app/view/main/notification/notification_view.dart'
     as _i8;
 import 'package:thekiddle_app/view/main/payroll/payroll_view.dart' as _i4;
@@ -39,6 +42,10 @@ class Routes {
 
   static const calendarView = '/calendar-view';
 
+  static const momentsView = '/moments-view';
+
+  static const addMomentView = '/add-moment-view';
+
   static const homeView = '/';
 
   static const all = <String>{
@@ -50,6 +57,8 @@ class Routes {
     replacementRequestView,
     notificationView,
     calendarView,
+    momentsView,
+    addMomentView,
     homeView,
   };
 }
@@ -89,63 +98,83 @@ class StackedRouter extends _i1.RouterBase {
       page: _i9.CalendarView,
     ),
     _i1.RouteDef(
+      Routes.momentsView,
+      page: _i10.MomentsView,
+    ),
+    _i1.RouteDef(
+      Routes.addMomentView,
+      page: _i11.AddMomentView,
+    ),
+    _i1.RouteDef(
       Routes.homeView,
-      page: _i10.HomeView,
+      page: _i12.HomeView,
     ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.SignInView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.SignInView(),
         settings: data,
       );
     },
     _i3.ProfileView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.ProfileView(),
         settings: data,
       );
     },
     _i4.PayrollView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.PayrollView(),
         settings: data,
       );
     },
     _i5.StudentView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.StudentView(),
         settings: data,
       );
     },
     _i6.ReplacementView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ReplacementView(),
         settings: data,
       );
     },
     _i7.ReplacementRequestView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.ReplacementRequestView(),
         settings: data,
       );
     },
     _i8.NotificationView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.NotificationView(),
         settings: data,
       );
     },
     _i9.CalendarView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.CalendarView(),
         settings: data,
       );
     },
-    _i10.HomeView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i10.HomeView(),
+    _i10.MomentsView: (data) {
+      return _i13.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i10.MomentsView(),
+        settings: data,
+      );
+    },
+    _i11.AddMomentView: (data) {
+      return _i13.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i11.AddMomentView(),
+        settings: data,
+      );
+    },
+    _i12.HomeView: (data) {
+      return _i13.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i12.HomeView(),
         settings: data,
       );
     },
@@ -158,7 +187,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i12.NavigationService {
+extension NavigatorStateExtension on _i14.NavigationService {
   Future<dynamic> navigateToSignInView([
     int? routerId,
     bool preventDuplicates = true,
@@ -265,6 +294,34 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.calendarView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToMomentsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.momentsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToAddMomentView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.addMomentView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -391,6 +448,34 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.calendarView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithMomentsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.momentsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithAddMomentView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.addMomentView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
