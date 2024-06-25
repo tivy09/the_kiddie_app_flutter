@@ -73,7 +73,7 @@ class DrawerView extends StatelessWidget {
                 leading: const Icon(Icons.message),
                 title: const Text('Communication'),
                 onTap: () {
-                  // Handle communication tap
+                  model.navigateToCommunication(context);
                 },
               ),
               ListTile(
