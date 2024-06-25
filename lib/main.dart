@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
             .copyWith(
-                background: Colors
+                surface: Colors
                     .white), // Optional: Set background color for other widgets
       ),
       navigatorKey: StackedService.navigatorKey,

@@ -41,7 +41,7 @@ class CalendarViewModel extends BaseViewModel {
   }
 
   void onFormatChanged(CalendarFormat format) {
-    this.calendarFormat = format;
+    calendarFormat = format;
     notifyListeners();
   }
 }
