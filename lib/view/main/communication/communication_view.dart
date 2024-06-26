@@ -5,6 +5,8 @@ import 'package:thekiddle_app/model/conversation/survey_model.dart';
 import 'package:thekiddle_app/model/conversation/event_model.dart';
 import 'package:thekiddle_app/view/main/communication/communication_viewmodel.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/broadcast/broadcast_view.dart';
+import 'package:thekiddle_app/view/main/communication/tab_widget/bulletines/bulletines_view.dart';
+import 'package:thekiddle_app/view/main/communication/tab_widget/bulletines/bulletines_viewmodel.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/conversation_view.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/events/event_view.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/survey/survey_view.dart';
@@ -24,6 +26,9 @@ class CommunicationView extends StatelessWidget {
     // Initialize the EventViewModel and fetch events
     EventViewModel eventViewModel = EventViewModel();
     eventViewModel.fetchEvents();
+
+    BulletinViewModel bulletinViewModel = BulletinViewModel();
+    bulletinViewModel.fetchBulletins();
 
     return ViewModelBuilder<CommunicationViewmodel>.reactive(
       viewModelBuilder: () => CommunicationViewmodel(),
@@ -75,7 +80,8 @@ class CommunicationView extends StatelessWidget {
                                 BroadcastsTab(broadcasts: sampleBroadcasts),
                                 SurveyTab(surveys: sampleSurveys),
                                 EventsTab(events: eventViewModel.events),
-                                const StudentListTab(),
+                                BulletinsTab(
+                                    bulletins: bulletinViewModel.bulletins),
                               ],
                             ),
                           ),
