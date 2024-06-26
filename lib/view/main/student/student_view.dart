@@ -49,6 +49,8 @@ class StudentView extends StatelessWidget {
                       child: const Column(
                         children: [
                           TabBar(
+                            tabAlignment: TabAlignment.center,
+                            isScrollable: true,
                             labelColor: Colors.pink,
                             unselectedLabelColor: Colors.black,
                             indicatorColor: Colors.pink,
