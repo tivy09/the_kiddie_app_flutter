@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/model/conversation/broadcast_model.dart';
 import 'package:thekiddle_app/view/main/communication/communication_viewmodel.dart';
-import 'package:thekiddle_app/view/main/communication/tab_widget/broadcast_view.dart';
+import 'package:thekiddle_app/view/main/communication/tab_widget/broadcast/broadcast_view.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/conversation_view.dart';
 import 'package:thekiddle_app/view/main/student/tab_widget/student_list.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
@@ -10,7 +10,9 @@ import 'package:thekiddle_app/view/shared/header/header.dart';
 import 'package:thekiddle_app/widget/others/page_title.dart';
 
 class CommunicationView extends StatelessWidget {
-  const CommunicationView({super.key});
+  final int initialIndex;
+
+  const CommunicationView({super.key, this.initialIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class CommunicationView extends StatelessWidget {
       builder: (context, model, child) {
         return DefaultTabController(
           length: 5, // Ensure this matches the number of tabs
+          initialIndex: initialIndex, // Set the initial tab index
           child: Scaffold(
             appBar: const PreferredSize(
               preferredSize: Size.fromHeight(kToolbarHeight),
@@ -41,6 +44,7 @@ class CommunicationView extends StatelessWidget {
                       child: Column(
                         children: [
                           const TabBar(
+                            tabAlignment: TabAlignment.start,
                             isScrollable: true,
                             indicatorWeight: 4,
                             labelColor: Colors.pink,

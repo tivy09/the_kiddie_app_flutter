@@ -79,7 +79,8 @@ class DrawerViewModel extends BaseViewModel {
   void navigateToCommunication(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const CommunicationView()),
+      MaterialPageRoute(
+          builder: (context) => const CommunicationView(initialIndex: 0)),
     );
   }
 }

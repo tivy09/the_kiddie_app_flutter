@@ -182,8 +182,12 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i12.CommunicationView: (data) {
+      final args = data.getArgs<CommunicationViewArguments>(
+        orElse: () => const CommunicationViewArguments(),
+      );
       return _i14.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i12.CommunicationView(),
+        builder: (context) => _i12.CommunicationView(
+            key: args.key, initialIndex: args.initialIndex),
         settings: data,
       );
     },
@@ -200,6 +204,33 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
+}
+
+class CommunicationViewArguments {
+  const CommunicationViewArguments({
+    this.key,
+    this.initialIndex = 0,
+  });
+
+  final _i14.Key? key;
+
+  final int initialIndex;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "initialIndex": "$initialIndex"}';
+  }
+
+  @override
+  bool operator ==(covariant CommunicationViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.initialIndex == initialIndex;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ initialIndex.hashCode;
+  }
 }
 
 extension NavigatorStateExtension on _i15.NavigationService {
@@ -343,14 +374,18 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToCommunicationView([
+  Future<dynamic> navigateToCommunicationView({
+    _i14.Key? key,
+    int initialIndex = 0,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.communicationView,
+        arguments:
+            CommunicationViewArguments(key: key, initialIndex: initialIndex),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -511,14 +546,18 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithCommunicationView([
+  Future<dynamic> replaceWithCommunicationView({
+    _i14.Key? key,
+    int initialIndex = 0,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.communicationView,
+        arguments:
+            CommunicationViewArguments(key: key, initialIndex: initialIndex),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
