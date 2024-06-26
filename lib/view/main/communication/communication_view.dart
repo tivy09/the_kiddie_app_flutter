@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:thekiddle_app/model/conversation/broadcast_model.dart';
 import 'package:thekiddle_app/model/conversation/survey_model.dart';
+import 'package:thekiddle_app/model/conversation/event_model.dart';
 import 'package:thekiddle_app/view/main/communication/communication_viewmodel.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/broadcast/broadcast_view.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/conversation_view.dart';
+import 'package:thekiddle_app/view/main/communication/tab_widget/events/event_view.dart';
 import 'package:thekiddle_app/view/main/communication/tab_widget/survey/survey_view.dart';
 import 'package:thekiddle_app/view/main/student/tab_widget/student_list.dart';
 import 'package:thekiddle_app/view/shared/drawer/drawer_view.dart';
 import 'package:thekiddle_app/view/shared/header/header.dart';
 import 'package:thekiddle_app/widget/others/page_title.dart';
+import 'package:thekiddle_app/view/main/communication/tab_widget/events/event_viewmodel.dart';
 
 class CommunicationView extends StatelessWidget {
   final int initialIndex;
@@ -18,6 +21,10 @@ class CommunicationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Initialize the EventViewModel and fetch events
+    EventViewModel eventViewModel = EventViewModel();
+    eventViewModel.fetchEvents();
+
     return ViewModelBuilder<CommunicationViewmodel>.reactive(
       viewModelBuilder: () => CommunicationViewmodel(),
       builder: (context, model, child) {
@@ -66,10 +73,8 @@ class CommunicationView extends StatelessWidget {
                               children: [
                                 const ConversationsTab(),
                                 BroadcastsTab(broadcasts: sampleBroadcasts),
-                                SurveyTab(
-                                  surveys: sampleSurveys,
-                                ),
-                                const StudentListTab(),
+                                SurveyTab(surveys: sampleSurveys),
+                                EventsTab(events: eventViewModel.events),
                                 const StudentListTab(),
                               ],
                             ),
