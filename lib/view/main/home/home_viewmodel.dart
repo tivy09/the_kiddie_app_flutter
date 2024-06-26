@@ -1,30 +1,56 @@
 import 'package:stacked/stacked.dart';
-import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class HomeViewModel extends BaseViewModel {
-  String selectedClass = 'Class';
-  String selectedDate = DateFormat.yMMMM().format(DateTime.now());
-  List<String> classes = ['Class', 'Class 1', 'Class 2'];
-  List<String> availableDates = [
-    'December 2023',
-    DateFormat.yMMMM().format(DateTime.now()),
-  ];
+  // Existing properties
+  String selectedClass = 'Class A';
+  String selectedDate = '2024-06-26';
+  List<String> classes = ['Class A', 'Class B', 'Class C'];
+  List<String> availableDates = ['2024-06-26', '2024-06-27', '2024-06-28'];
 
-  DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
+  DateTime selectedDay = DateTime.now();
   CalendarFormat calendarFormat = CalendarFormat.month;
 
   List<Map<String, String>> nextSchedule = [
     {
       'title': 'Math Class',
-      'time': '10:00 AM',
-      'color': '0xFF90CAF9',
+      'time': '10:00 AM - 11:00 AM',
+      'color': '0xFFB3E5FC',
     },
     {
       'title': 'Science Class',
-      'time': '12:00 PM',
-      'color': '0xFFA5D6A7',
+      'time': '11:30 AM - 12:30 PM',
+      'color': '0xFFB39DDB',
+    },
+  ];
+
+  // New property for replacement requests
+  List<Map<String, String>> replacementRequests = [
+    {
+      'status': 'Pending',
+      'lesson': 'English',
+      'submittedOn': '18/12/2023',
+    },
+    {
+      'status': 'Pending',
+      'lesson': 'English',
+      'submittedOn': '18/12/2023',
+    },
+    {
+      'status': 'Reject',
+      'lesson': 'English',
+      'submittedOn': '18/12/2023',
+    },
+    {
+      'status': 'Approved',
+      'lesson': 'English',
+      'submittedOn': '18/12/2023',
+    },
+    {
+      'status': 'Pending',
+      'lesson': 'English',
+      'submittedOn': '18/12/2023',
     },
   ];
 
@@ -38,9 +64,9 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void onDaySelected(DateTime selectedDay, DateTime focusedDay) {
-    this.selectedDay = selectedDay;
-    this.focusedDay = focusedDay;
+  void onDaySelected(DateTime selected, DateTime focused) {
+    selectedDay = selected;
+    focusedDay = focused;
     notifyListeners();
   }
 
