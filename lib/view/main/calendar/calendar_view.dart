@@ -206,7 +206,7 @@ class CalendarView extends StatelessWidget {
       },
       calendarStyle: const CalendarStyle(
         selectedDecoration: BoxDecoration(
-          color: Colors.pink,
+          color: Color(0xFFFCE4E9),
           shape: BoxShape.circle,
         ),
         todayDecoration: BoxDecoration(
@@ -229,7 +229,7 @@ class CalendarView extends StatelessWidget {
 
   Widget _buildNextSchedule(CalendarViewModel model) {
     return Container(
-      color: Colors.pink[50],
+      color: Color(0xFFFCE4E9),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

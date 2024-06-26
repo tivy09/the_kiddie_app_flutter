@@ -144,7 +144,7 @@ class StudentProgressTab extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black54, style: BorderStyle.solid),
         borderRadius: BorderRadius.circular(8.0),
-        color: Colors.pink[50],
+        color: Color(0xFFFCE4E9),
       ),
       child: Center(
         child: Icon(icon, color: Colors.blue, size: 50),

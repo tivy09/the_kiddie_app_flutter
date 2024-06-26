@@ -15,14 +15,14 @@ class EventDetailView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.pink.shade50,
+            backgroundColor: Color(0xFFFCE4E9),
             elevation: 0,
             toolbarHeight: 0,
           ),
           body: Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            color: Colors.pink.shade50, // Background color behind the container
+            color: Color(0xFFFCE4E9), // Background color behind the container
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

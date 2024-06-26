@@ -25,7 +25,7 @@ class Header extends StatelessWidget {
         title: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.tag_faces, color: Colors.pink),
+            Icon(Icons.tag_faces, color: Color(0xFFFCE4E9)),
             SizedBox(width: 4),
             Text(
               'Kiddie',

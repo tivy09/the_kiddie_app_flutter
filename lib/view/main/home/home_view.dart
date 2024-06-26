@@ -84,7 +84,7 @@ class HomeView extends StatelessWidget {
                         },
                         calendarStyle: const CalendarStyle(
                           selectedDecoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Color(0xFFFCE4E9),
                             shape: BoxShape.circle,
                           ),
                           todayDecoration: BoxDecoration(

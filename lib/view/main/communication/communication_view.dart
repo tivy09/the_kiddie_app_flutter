@@ -61,9 +61,9 @@ class CommunicationView extends StatelessWidget {
                             tabAlignment: TabAlignment.start,
                             isScrollable: true,
                             indicatorWeight: 4,
-                            labelColor: Colors.pink,
+                            labelColor: Color(0xFFFCE4E9),
                             unselectedLabelColor: Colors.black,
-                            indicatorColor: Colors.pink,
+                            indicatorColor: Color(0xFFFCE4E9),
                             tabs: [
                               Tab(text: 'Conversations'),
                               Tab(text: 'Broadcast'),

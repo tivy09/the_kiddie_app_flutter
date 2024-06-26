@@ -32,9 +32,9 @@ class MomentsView extends StatelessWidget {
                   PageTitle(title: 'Moments'),
                   SizedBox(height: 8),
                   TabBar(
-                    labelColor: Colors.pink,
+                    labelColor: Color(0xFFFCE4E9),
                     unselectedLabelColor: Colors.black,
-                    indicatorColor: Colors.pink,
+                    indicatorColor: Color(0xFFFCE4E9),
                     tabs: [
                       Tab(text: 'All'),
                       Tab(text: 'Students'),
