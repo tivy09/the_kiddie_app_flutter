@@ -60,7 +60,7 @@ class ConversationsTab extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundImage: AssetImage(
-                      'path/to/image.png'), // Use your image path here
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqb6n5-cyXHc20KIlKnUMthPOSzXtKssHYw&s'), // Use your image path here
                   radius: 30,
                 ),
                 SizedBox(width: 10),
@@ -132,7 +132,7 @@ class ConversationsTab extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       backgroundImage: AssetImage(
-                          'path/to/image.png'), // Use your image path here
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqb6n5-cyXHc20KIlKnUMthPOSzXtKssHYw&s'), // Use your image path here
                       radius: 30,
                     ),
                     SizedBox(width: 10),
@@ -159,7 +159,7 @@ class ConversationsTab extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               backgroundImage: AssetImage(
-                                  'path/to/image.png'), // Use your image path here
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqb6n5-cyXHc20KIlKnUMthPOSzXtKssHYw&s'), // Use your image path here
                               radius: 15,
                             ),
                             SizedBox(width: 10),
