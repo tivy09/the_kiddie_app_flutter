@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:thekiddle_app/model/moments_model.dart';
 import 'package:thekiddle_app/view/main/moments/moments_viewmodel.dart';
 import 'package:stacked/stacked.dart';

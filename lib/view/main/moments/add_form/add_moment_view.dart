@@ -108,7 +108,7 @@ class AddMomentView extends StatelessWidget {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 12.0,
                               horizontal: 16.0), // Adjust padding here
                           enabledBorder: OutlineInputBorder(
@@ -145,7 +145,7 @@ class AddMomentView extends StatelessWidget {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 12.0,
                               horizontal: 16.0), // Adjust padding here
                           enabledBorder: OutlineInputBorder(
@@ -182,7 +182,7 @@ class AddMomentView extends StatelessWidget {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 12.0,
                               horizontal: 16.0), // Adjust padding here
                           enabledBorder: OutlineInputBorder(

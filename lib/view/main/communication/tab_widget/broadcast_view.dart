@@ -43,13 +43,13 @@ class BroadcastsTab extends StatelessWidget {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text('+ Add New',
-                    style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 12.0),
                   backgroundColor: Colors.blue,
                 ),
+                child: const Text('+ Add New',
+                    style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
@@ -84,16 +84,16 @@ class BroadcastsTab extends StatelessWidget {
                                 broadcast.avatar), // Use your image path here
                           ),
                           title: Text(broadcast.username,
-                              style: TextStyle(fontWeight: FontWeight.bold)),
+                              style: const TextStyle(fontWeight: FontWeight.bold)),
                           subtitle: Text(
                             '${broadcast.datetime.toLocal()}'
                                 .split(' ')[0], // Display date
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                         ),
                         Text(
                           broadcast.title,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 4),
                         Text(broadcast.description),
@@ -112,7 +112,7 @@ class BroadcastsTab extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                Icon(Icons.insert_drive_file,
+                                const Icon(Icons.insert_drive_file,
                                     color: Colors.grey),
                                 const SizedBox(width: 4),
                                 Text(broadcast.attachment),
