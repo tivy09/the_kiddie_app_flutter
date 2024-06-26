@@ -82,13 +82,13 @@ class HomeView extends StatelessWidget {
                         onFormatChanged: (format) {
                           model.onFormatChanged(format);
                         },
-                        calendarStyle: const CalendarStyle(
+                        calendarStyle: CalendarStyle(
                           selectedDecoration: BoxDecoration(
-                            color: Color(0xFFFCE4E9),
+                            color: const Color(0xFF6667AA).withOpacity(0.14),
                             shape: BoxShape.circle,
                           ),
                           todayDecoration: BoxDecoration(
-                            color: Colors.blueAccent,
+                            color: const Color(0xFF6667AA).withOpacity(0.86),
                             shape: BoxShape.circle,
                           ),
                         ),
