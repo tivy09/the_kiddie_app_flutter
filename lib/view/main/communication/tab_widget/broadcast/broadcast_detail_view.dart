@@ -18,14 +18,14 @@ class BroadcastDetailView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Color(0xFFFCE4E9),
+            backgroundColor: const Color(0xFFFCE4E9),
             elevation: 0,
             toolbarHeight: 0,
           ),
           body: Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            color: Color(0xFFFCE4E9), // Background color behind the container
+            color: const Color(0xFFFCE4E9), // Background color behind the container
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -180,7 +180,7 @@ class BroadcastDetailView extends StatelessWidget {
 class ImageViewer extends StatelessWidget {
   final String url;
 
-  const ImageViewer({Key? key, required this.url}) : super(key: key);
+  const ImageViewer({super.key, required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -223,7 +223,7 @@ class BackOutlineButtonWidget extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
         ),
-        backgroundColor: Color(0xFFFCE4E9),
+        backgroundColor: const Color(0xFFFCE4E9),
       ),
       child: const Row(
         mainAxisSize: MainAxisSize.min,

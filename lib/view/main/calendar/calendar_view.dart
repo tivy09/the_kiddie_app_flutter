@@ -229,7 +229,7 @@ class CalendarView extends StatelessWidget {
 
   Widget _buildNextSchedule(CalendarViewModel model) {
     return Container(
-      color: Color(0xFFFCE4E9),
+      color: const Color(0xFFFCE4E9),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

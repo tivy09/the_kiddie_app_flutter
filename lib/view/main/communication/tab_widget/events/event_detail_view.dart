@@ -15,14 +15,14 @@ class EventDetailView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Color(0xFFFCE4E9),
+            backgroundColor: const Color(0xFFFCE4E9),
             elevation: 0,
             toolbarHeight: 0,
           ),
           body: Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            color: Color(0xFFFCE4E9), // Background color behind the container
+            color: const Color(0xFFFCE4E9), // Background color behind the container
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -60,7 +60,7 @@ class EventDetailView extends StatelessWidget {
                           children: [
                             Center(
                               child: Text(
-                                '${event.time}',
+                                event.time,
                                 style: const TextStyle(
                                   fontSize: 48,
                                   fontWeight: FontWeight.bold,

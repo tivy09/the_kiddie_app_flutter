@@ -53,7 +53,7 @@ class StudentView extends StatelessWidget {
                             isScrollable: true,
                             labelColor: Colors.black,
                             unselectedLabelColor: Colors.black,
-                            indicatorColor: const Color(0xFFD07E9C),
+                            indicatorColor: Color(0xFFD07E9C),
                             tabs: [
                               Tab(text: 'Students list'),
                               Tab(text: 'Student progress'),

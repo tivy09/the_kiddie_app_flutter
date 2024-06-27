@@ -209,7 +209,7 @@ class BroadcastsTab extends StatelessWidget {
 class ImageViewer extends StatelessWidget {
   final String url;
 
-  const ImageViewer({Key? key, required this.url}) : super(key: key);
+  const ImageViewer({super.key, required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +221,7 @@ class ImageViewer extends StatelessWidget {
         child: PhotoView(
           imageProvider: NetworkImage(url),
           loadingBuilder: (context, event) => const Center(
-            child: const CircularProgressIndicator(),
+            child: CircularProgressIndicator(),
           ),
           errorBuilder: (context, error, stackTrace) => const Center(
             child: Text('Failed to load image'),

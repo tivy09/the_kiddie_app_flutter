@@ -119,7 +119,7 @@ class BulletinListView extends StatelessWidget {
                       children: [
                         Center(
                           child: Text(
-                            '${bulletin.time}',
+                            bulletin.time,
                             style: const TextStyle(
                               fontSize: 48,
                               fontWeight: FontWeight.bold,

@@ -35,7 +35,7 @@ class EventViewModel extends BaseViewModel {
     // Navigate to add event screen
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => AddEventScreen()),
+      MaterialPageRoute(builder: (context) => const AddEventScreen()),
     );
   }
 
@@ -93,13 +93,15 @@ class EventViewModel extends BaseViewModel {
 }
 
 class AddEventScreen extends StatelessWidget {
+  const AddEventScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Event'),
+        title: const Text('Add Event'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Add Event Screen'),
       ),
     );
